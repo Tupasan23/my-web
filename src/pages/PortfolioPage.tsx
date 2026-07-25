@@ -1,10 +1,16 @@
 import React from 'react';
+import Portfolio from '../Home/Portfolio';
 
 const PortfolioPage = () => (
-  <section>
-    <h1>Portfolio</h1>
-    <p>See featured projects and recent highlights.</p>
-  </section>
+  <>
+    <div className="page-header">
+      <h1>Our Portfolio</h1>
+      <p>See recent work and client success stories.</p>
+    </div>
+    <main>
+      <Portfolio />
+    </main>
+  </>
 );
 
 export default PortfolioPage;
