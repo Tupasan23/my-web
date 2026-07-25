@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Hero = () => (
   <>
     <div className="hero-wrapper">
-      <img src="/hero-bg.png" alt="" className="hero-bg" />
+      <img src="/hero-bg.jpg" alt="" className="hero-bg" />
       <div className="hero-overlay" />
       <div className="hero-gradient-bottom" />
 
