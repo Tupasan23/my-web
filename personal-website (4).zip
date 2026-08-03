@@ -1,0 +1,26 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name].[ext]',
+        manualChunks(id) {
+          if (id.includes('node_modules/three') || id.includes('node_modules/@react-three')) {
+            return 'three-IceWSW4X';
+          }
+          if (id.includes('node_modules/lucide-react') || id.includes('node_modules/react-router-dom') || id.includes('node_modules/react') || id.includes('node_modules/scheduler')) {
+            return 'ui-BkR8bY4g';
+          }
+          if (id.includes('node_modules')) {
+            return 'vendor-Cq4DKrf';
+          }
+        }
+      }
+    }
+  }
+})
