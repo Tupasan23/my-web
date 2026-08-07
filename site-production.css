@@ -1,0 +1,10 @@
+/* Production accessibility and motion safeguards */
+html{scroll-behavior:smooth;background:#fff}
+body{min-width:320px;overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+img,video,canvas,svg{max-width:100%;height:auto}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid #f58927!important;outline-offset:4px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
