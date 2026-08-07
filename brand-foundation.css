@@ -60,3 +60,35 @@
 @media (max-width:700px){
  .aj-about-motion .photo{opacity:.55!important}
 }
+
+/* Global site-wide brand system: applies to original pages and new 3D slides */
+html,body,#root{background:var(--aj-brand-white)!important;color:var(--aj-brand-ink)!important}
+.bg-bg-primary,.bg-bg-primary\/80,.bg-black{background-color:var(--aj-brand-white)!important}
+.bg-bg-secondary{background-color:var(--aj-brand-mist)!important}
+.bg-bg-tertiary{background-color:#e5f6f2!important}
+.bg-bg-glass{background-color:#ffffff!important;border-color:#cce9e3!important}
+.text-text-primary{color:var(--aj-brand-navy)!important}
+.text-text-secondary{color:#48626d!important}
+.text-text-tertiary,.text-gray-400,.text-slate-400{color:#647b83!important}
+.text-blue-500,.text-blue-600,.text-cyan-600,.text-purple-500,.text-purple-600{color:var(--aj-brand-teal-deep)!important}
+main>section:not(.aj-hero-3d):not(.aj-skills-3d):not(.aj-proof-wall):not(.aj-about-motion):not(.aj-impact){
+  background:linear-gradient(135deg,#ffffff 0%,#f5fbfa 68%,#e9f7f4 100%)!important;
+  color:var(--aj-brand-ink)!important;
+}
+main>section:not(.aj-hero-3d):not(.aj-skills-3d):not(.aj-proof-wall):not(.aj-about-motion):not(.aj-impact) h1,
+main>section:not(.aj-hero-3d):not(.aj-skills-3d):not(.aj-proof-wall):not(.aj-about-motion):not(.aj-impact) h2,
+main>section:not(.aj-hero-3d):not(.aj-skills-3d):not(.aj-proof-wall):not(.aj-about-motion):not(.aj-impact) h3{
+  color:var(--aj-brand-navy)!important;
+}
+main>section:not(.aj-hero-3d):not(.aj-skills-3d):not(.aj-proof-wall):not(.aj-about-motion):not(.aj-impact) .text-white{
+  color:var(--aj-brand-navy)!important;
+}
+main .bg-primary,main .bg-teal-500,main .bg-cyan-500,main .bg-blue-500{
+  background-color:var(--aj-brand-teal)!important;
+}
+main .bg-primary .text-white,main .bg-teal-500 .text-white,main .bg-cyan-500 .text-white,main .bg-blue-500 .text-white{
+  color:#fff!important;
+}
+main .border-blue-200,main .border-cyan-200,main .border-purple-200{
+  border-color:#a6ddd4!important;
+}
