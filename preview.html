@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulting Platform - Interface Preview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0f; color: #f1f5f9; padding: 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #6366f1, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .subtitle { color: #94a3b8; margin-bottom: 2rem; font-size: 1.1rem; }
+    .preview-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    .preview-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(12px); }
+    .preview-card h2 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #818cf8; }
+    .preview-card p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1rem; }
+    .mockup { width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
+    .mockup img { width: 100%; display: block; }
+    .specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .spec-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; }
+    .spec-item .label { color: #64748b; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .spec-item .value { color: #f1f5f9; font-size: 1.1rem; font-weight: 600; margin-top: 0.25rem; }
+    .status-bar { display: flex; gap: 2rem; flex-wrap: wrap; margin: 2rem 0; padding: 1rem; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 12px; }
+    .status-item { display: flex; align-items: center; gap: 0.5rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot.green { background: #10b981; }
+    .pages-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; margin-top: 1rem; }
+    .page-tag { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); border-radius: 8px; padding: 0.5rem 0.75rem; font-size: 0.85rem; color: #818cf8; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Allan James Tupasan Consulting Platform</h1>
+    <p class="subtitle">Full visual preview of all interfaces before Hostinger deployment</p>
+
+    <div class="status-bar">
+      <div class="status-item"><span class="dot green"></span> Build Status: <strong>✅ Production Ready</strong></div>
+      <div class="status-item"><span class="dot green"></span> Pages: <strong>19 Routes</strong></div>
+      <div class="status-item"><span class="dot green"></span> Stack: <strong>Vite + React 18 + Tailwind v3</strong></div>
+      <div class="status-item"><span class="dot green"></span> 3D: <strong>Three.js Globe</strong></div>
+    </div>
+
+    <!-- Navbar Preview -->
+    <div class="preview-card">
+      <h2>📌 HEADER / NAVIGATION BAR</h2>
+      <p>Fixed glassmorphism navbar with CONSULT logo, all menu links, and CTA button</p>
+      <div class="mockup"><img src="/previews/navbar-footer.jpg" alt="Navbar Preview"></div>
+    </div>
+
+    <!-- Hero Preview -->
+    <div class="preview-card">
+      <h2>🏠 HOMEPAGE HERO</h2>
+      <p>Full-screen hero with your photo, 3D interactive globe, headline, achievements stats, and CTAs</p>
+      <div class="mockup"><img src="/previews/hero-section.jpg" alt="Hero Preview"></div>
+    </div>
+
+    <!-- Services Preview -->
+    <div class="preview-card">
+      <h2>🧩 SERVICES GRID</h2>
+      <p>6 featured services in a 3x2 glassmorphism card grid with gradient icons</p>
+      <div class="mockup"><img src="/previews/services-page.jpg" alt="Services Preview"></div>
+    </div>
+
+    <!-- About Preview -->
+    <div class="preview-card">
+      <h2>👤 ABOUT PAGE</h2>
+      <p>Two-column layout with photo, bio, values grid, and 4-chapter career timeline</p>
+      <div class="mockup"><img src="/previews/about-page.jpg" alt="About Preview"></div>
+    </div>
+
+    <!-- Contact + Portfolio -->
+    <div class="preview-card">
+      <h2>📞 CONTACT & 📂 PORTFOLIO</h2>
+      <p>Contact form with validation, portfolio project cards with metrics</p>
+      <div class="mockup"><img src="/previews/contact-portfolio.jpg" alt="Contact & Portfolio Preview"></div>
+    </div>
+
+    <!-- Specs -->
+    <h2 style="margin-top:2rem; color:#818cf8;">⚙️ Complete Page Inventory</h2>
+    <div class="pages-list">
+      <div class="page-tag">🏠 Home</div>
+      <div class="page-tag">👤 About</div>
+      <div class="page-tag">🧩 Services</div>
+      <div class="page-tag">🏭 Industries</div>
+      <div class="page-tag">📂 Portfolio</div>
+      <div class="page-tag">📊 Case Studies</div>
+      <div class="page-tag">🏆 Achievements</div>
+      <div class="page-tag">🎬 Video Gallery</div>
+      <div class="page-tag">📸 Photo Gallery</div>
+      <div class="page-tag">📝 Blog</div>
+      <div class="page-tag">🎓 Certifications</div>
+      <div class="page-tag">💬 Testimonials</div>
+      <div class="page-tag">📚 Resources</div>
+      <div class="page-tag">❓ FAQ</div>
+      <div class="page-tag">📞 Contact</div>
+      <div class="page-tag">📅 Book Consultation</div>
+      <div class="page-tag">🔒 Privacy Policy</div>
+      <div class="page-tag">📄 Service Detail</div>
+      <div class="page-tag">🏢 Industry Detail</div>
+    </div>
+
+    <h2 style="margin-top:2rem; color:#818cf8;">📐 Design System Specs</h2>
+    <div class="specs">
+      <div class="spec-item"><div class="label">Theme</div><div class="value">🌙 Dark Mode</div></div>
+      <div class="spec-item"><div class="label">Primary Color</div><div class="value">#6366f1 Indigo</div></div>
+      <div class="spec-item"><div class="label">Secondary Color</div><div class="value">#06b6d4 Cyan</div></div>
+      <div class="spec-item"><div class="label">UI Style</div><div class="value">Glassmorphism</div></div>
+      <div class="spec-item"><div class="label">Typography</div><div class="value">Inter Font</div></div>
+      <div class="spec-item"><div class="label">Animations</div><div class="value">Framer Motion</div></div>
+      <div class="spec-item"><div class="label">3D Engine</div><div class="value">Three.js / R3F</div></div>
+      <div class="spec-item"><div class="label">Icons</div><div class="value">Lucide React</div></div>
+      <div class="spec-item"><div class="label">Form Handling</div><div class="value">React Hook Form</div></div>
+      <div class="spec-item"><div class="label">SEO</div><div class="value">React Helmet + Schema.org</div></div>
+      <div class="spec-item"><div class="label">Routing</div><div class="value">React Router v7</div></div>
+      <div class="spec-item"><div class="label">Logo</div><div class="value">CONSULT (gradient pill)</div></div>
+    </div>
+
+    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); border-radius: 12px; text-align: center;">
+      <p style="color: #818cf8; font-size: 1.1rem;">✅ Dev Server Running at <strong>http://localhost:3000</strong> — All Pages Compiling & Serving</p>
+    </div>
+  </div>
+</body>
+</html>
