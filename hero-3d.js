@@ -44,7 +44,16 @@
     });
     stage.addEventListener('pointerleave', () => { stage.style.setProperty('--rx','0deg'); stage.style.setProperty('--ry','0deg'); });
   };
-  const boot = () => { mount(); setTimeout(mount, 450); setTimeout(mount, 1300); };
+  let observer;
+  const boot = () => {
+    mount();
+    if (observer) observer.disconnect();
+    observer = new MutationObserver(() => {
+      mount();
+      if (document.querySelector('.aj-hero-3d')) observer.disconnect();
+    });
+    if (document.body) observer.observe(document.body, { childList: true, subtree: true });
+  };
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', boot) : boot();
   addEventListener('popstate', boot);
 })();
