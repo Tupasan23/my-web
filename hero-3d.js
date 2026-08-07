@@ -2,6 +2,7 @@
   const mount = () => {
     if (location.pathname.replace(/\/$/, '') !== '') return;
     const main = document.querySelector('main');
+    if (!main) return;
     const currentHero = [...main.children].find((node) => node.querySelector('h1'));
     if (!currentHero || document.querySelector('.aj-hero-3d')) return;
 
@@ -43,5 +44,7 @@
     });
     stage.addEventListener('pointerleave', () => { stage.style.setProperty('--rx','0deg'); stage.style.setProperty('--ry','0deg'); });
   };
-  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', mount) : mount();
+  const boot = () => { mount(); setTimeout(mount, 450); setTimeout(mount, 1300); };
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', boot) : boot();
+  addEventListener('popstate', boot);
 })();
