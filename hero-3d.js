@@ -1,5 +1,6 @@
 (() => {
   const mount = () => {
+    if (location.pathname.replace(/\/$/, '') !== '') return;
     const main = document.querySelector('main');
     const currentHero = [...main.children].find((node) => node.querySelector('h1'));
     if (!currentHero || document.querySelector('.aj-hero-3d')) return;
