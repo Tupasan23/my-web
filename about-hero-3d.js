@@ -1,5 +1,13 @@
 (() => {
   const isHome = () => location.pathname.replace(/\/$/, '') === '';
+  const removeHomeServices = () => {
+    if (!isHome()) return;
+    document.querySelectorAll('h1,h2,h3').forEach((heading) => {
+      if (heading.textContent.replace(/\s+/g, ' ').trim().toLowerCase() === 'comprehensive consulting services') {
+        heading.closest('section')?.remove();
+      }
+    });
+  };
   const boot = () => {
     if (!isHome()) return;
     const main = document.querySelector('main');
@@ -47,7 +55,7 @@
     const reveal = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { section.classList.add('aj-in'); reveal.unobserve(section); } }); }, { threshold: .18 });
     reveal.observe(section);
   };
-  const rerun = () => { boot(); setTimeout(boot, 450); setTimeout(boot, 1200); };
+  const rerun = () => { removeHomeServices(); boot(); setTimeout(() => { removeHomeServices(); boot(); }, 450); setTimeout(() => { removeHomeServices(); boot(); }, 1200); };
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', rerun) : rerun();
   addEventListener('popstate', rerun);
 })();
