@@ -15,6 +15,15 @@
     const video = main.querySelector('iframe[src*="youtube"],iframe[src*="youtu.be"]');
     const target = video?.closest('section') || [...main.children][1] || main.lastElementChild;
     if (!target) return;
+    if (video) {
+      target.querySelectorAll('h1,h2,h3,p').forEach((node) => node.remove());
+      target.classList.add('aj-video-fullbleed');
+      const url = new URL(video.src, location.href);
+      url.searchParams.set('autoplay', '1'); url.searchParams.set('mute', '1');
+      url.searchParams.set('playsinline', '1'); url.searchParams.set('rel', '0');
+      video.src = url.toString(); video.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
+      video.setAttribute('title', 'Allan James Tupasan story video');
+    }
     const portrait = main.querySelector('img')?.getAttribute('src') || '/uploads/hero-photo.png';
     const paragraphs = `<p>Not because business owners lack experience or dedication—growth often hides inefficiencies in plain sight. Repetitive tasks, manual processes, and operational bottlenecks can quietly become “just the way things are.”</p><p>My role is to help identify those hidden patterns, streamline operations, and build systems that empower leaders to focus on what matters most: growing the business.</p>`;
     const section = document.createElement('section');
@@ -49,6 +58,11 @@
     `;
     style.textContent += `.aj-about-hero .aj-about-copy{opacity:0;transform:translate3d(-48px,0,0);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.8,.2,1)}.aj-about-hero .aj-about-stage{opacity:0;transition:opacity 1s .16s ease}.aj-about-hero.aj-in .aj-about-copy{opacity:1;transform:translate3d(0,0,0)}.aj-about-hero.aj-in .aj-about-stage{opacity:1}.aj-about-hero.aj-in .aj-problem-stack span{animation-duration:4.8s}.aj-about-hero.aj-in .aj-speech{animation-duration:5.8s}@media(prefers-reduced-motion:reduce){.aj-about-hero *{animation:none!important;transition:none!important}.aj-about-hero .aj-about-copy,.aj-about-hero .aj-about-stage{opacity:1;transform:none}}`;
     document.head.append(style);
+    if (!document.querySelector('#aj-video-fullbleed-style')) {
+      const videoStyle = document.createElement('style'); videoStyle.id = 'aj-video-fullbleed-style';
+      videoStyle.textContent = `.aj-video-fullbleed{position:relative!important;display:block!important;width:100%!important;min-height:100vh!important;margin:0!important;padding:0!important;overflow:hidden!important;background:#071a32!important}.aj-video-fullbleed iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important;border-radius:0!important;max-width:none!important}.aj-video-fullbleed>*:not(:has(iframe)){display:none!important}.aj-video-fullbleed>*:has(iframe){position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;padding:0!important}@media(max-width:700px){.aj-video-fullbleed{min-height:68vh!important}}`;
+      document.head.append(videoStyle);
+    }
     const stage = section.querySelector('.aj-about-stage');
     stage.addEventListener('pointermove', (event) => { const box=stage.getBoundingClientRect(); stage.style.setProperty('--y', `${((event.clientX-box.left)/box.width-.5)*5}deg`); stage.style.setProperty('--x', `${((event.clientY-box.top)/box.height-.5)*-4}deg`); });
     stage.addEventListener('pointerleave', () => { stage.style.setProperty('--x','0deg'); stage.style.setProperty('--y','0deg'); });
