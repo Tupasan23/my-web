@@ -1,24 +1,22 @@
 (() => {
-  const isAbout = () => location.pathname.replace(/\/$/, '').endsWith('/about');
+  const isHome = () => location.pathname.replace(/\/$/, '') === '';
   const boot = () => {
-    if (!isAbout()) return;
+    if (!isHome()) return;
     const main = document.querySelector('main');
     if (!main || main.querySelector('.aj-about-hero')) return;
-    const oldHero = [...main.children].find((item) => item.querySelector('h1'));
-    if (!oldHero) return;
-    const heading = oldHero.querySelector('h1')?.textContent?.trim() || 'About Allan James Tupasan';
-    const copy = [...oldHero.querySelectorAll('p')].map((p) => p.textContent.trim()).filter(Boolean);
-    const portrait = oldHero.querySelector('img')?.getAttribute('src') || '/uploads/hero-photo.png';
-    const paragraphs = (copy.length ? copy : ['I help businesses turn ideas into practical strategies, streamlined operations, and measurable growth.'])
-      .slice(0, 2).map((text) => `<p>${text}</p>`).join('');
+    const video = main.querySelector('iframe[src*="youtube"],iframe[src*="youtu.be"]');
+    const target = video?.closest('section') || [...main.children][1] || main.lastElementChild;
+    if (!target) return;
+    const portrait = main.querySelector('img')?.getAttribute('src') || '/uploads/hero-photo.png';
+    const paragraphs = `<p>Not because business owners lack experience or dedication—growth often hides inefficiencies in plain sight. Repetitive tasks, manual processes, and operational bottlenecks can quietly become “just the way things are.”</p><p>My role is to help identify those hidden patterns, streamline operations, and build systems that empower leaders to focus on what matters most: growing the business.</p>`;
     const section = document.createElement('section');
     section.className = 'aj-about-hero';
     section.innerHTML = `
       <div class="aj-about-grid"></div><div class="aj-about-sun"></div>
       <div class="aj-about-wrap">
         <div class="aj-about-copy">
-          <span class="aj-about-kicker">ABOUT ME <i></i></span>
-          <h1>${heading}</h1>
+          <span class="aj-about-kicker">THE GROWTH CHALLENGE <i></i></span>
+          <h1>When growth starts feeling harder than it should.</h1>
           <div class="aj-problem-stack">
             <span>Growth gets stuck in repeated manual work.</span>
             <span>Important decisions wait too long.</span>
@@ -35,7 +33,7 @@
           <div class="aj-desk"></div><span class="aj-spark s1"></span><span class="aj-spark s2"></span><span class="aj-spark s3"></span>
         </div>
       </div>`;
-    oldHero.replaceWith(section);
+    target.after(section);
     if (document.querySelector('#aj-about-hero-style')) return;
     const style = document.createElement('style'); style.id = 'aj-about-hero-style';
     style.textContent = `
